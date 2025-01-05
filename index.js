@@ -102,6 +102,8 @@ fastify.register(async (fastify) => {
             // sendInitialConversationItem();
         };
 
+
+
         // Send initial conversation item if AI talks first
         const sendInitialConversationItem = () => {
             const initialConversationItem = {
@@ -123,6 +125,9 @@ fastify.register(async (fastify) => {
             openAiWs.send(JSON.stringify({ type: 'response.create' }));
         };
 
+
+
+    
         // Handle interruption when the caller's speech starts
         const handleSpeechStartedEvent = () => {
             if (markQueue.length > 0 && responseStartTimestampTwilio != null) {

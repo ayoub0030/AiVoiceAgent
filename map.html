@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Search</title>
+    <style>
+        #map {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        #search-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        #search-input {
+            padding: 8px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+        #search-button {
+            padding: 8px 16px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #search-button:hover {
+            background-color: #357abd;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search location...">
+        <button id="search-button">Search</button>
+    </div>
+    <div id="map"></div>
+
+    <script>
+        // Handle Google Maps API load error
+      
+
+        let map;
+        let marker;
+
+        function initMap() {
+            // Initialize the map centered on a default location
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 },
+                zoom: 2
+            });
+
+            // Initialize the search box and button functionality
+            const searchButton = document.getElementById('search-button');
+            const searchInput = document.getElementById('search-input');
+            const geocoder = new google.maps.Geocoder();
+
+            searchButton.addEventListener('click', () => {
+                const address = searchInput.value;
+                geocodeAddress(geocoder, address);
+            });
+
+            // Allow search on Enter key press
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const address = searchInput.value;
+                    geocodeAddress(geocoder, address);
+                }
+            });
+        }
+
+        function geocodeAddress(geocoder, address) {
+            geocoder.geocode({ address: address }, (results, status) => {
+                if (status === 'OK') {
+                    const location = results[0].geometry.location;
+                    map.setCenter(location);
+                    map.setZoom(15);
+
+                    // Remove existing marker if any
+                    if (marker) {
+                        marker.setMap(null);
+                    }
+
+                    // Add new marker
+                    marker = new google.maps.Marker({
+                        map: map,
+                        position: location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+    <!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaM_WnVJRWVOBhMY5hqnKROP_jV_s4SNw&callback=initMap&v=weekly&channel=2" loading="async">
+</script>
+</body>
+</html>

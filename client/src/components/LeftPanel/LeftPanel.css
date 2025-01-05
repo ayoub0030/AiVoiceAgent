@@ -1,0 +1,51 @@
+.left-panel {
+  width: 300px;
+  height: 100vh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.panel-title {
+  margin-bottom: 16px !important;
+}
+
+.search-field {
+  margin-bottom: 16px !important;
+}
+
+.emergency-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.emergency-list {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.emergency-item {
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.emergency-item.critical {
+  background-color: rgba(211, 47, 47, 0.08);
+}
+
+.critical-icon {
+  margin-right: 8px;
+}
+
+.status-chip {
+  margin-left: 8px;
+}
