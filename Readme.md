@@ -1,7 +1,6 @@
 ![لقطة شاشة 2025-01-11 111612](https://github.com/user-attachments/assets/f195c9e9-3e79-494c-b4d8-2188eda393b5)#  Speech Assistant with Twilio Voice and the OpenAI Realtime API (Node.js)
 ![لقطة شاشة 2025-01-10 154743](https://github.com/user-attachments/assets/c34759d1-bf52-476b-bd82-89983df7dd3e)
-![Uploading لقطة شاشة 2025-01-11 111612.png…](![لقطة شاشة 2025-01-10 212215](https://github.com/user-attachments/assets/d1dcc558-237c-4f53-aa95-7bc77c74934a)
-)
+(![لقطة شاشة 2025-01-10 212215](https://github.com/user-attachments/assets/d1dcc558-237c-4f53-aa95-7bc77c74934a)
 
 This application demonstrates how to use Node.js, [Twilio Voice](https://www.twilio.com/docs/voice) and [Media Streams](https://www.twilio.com/docs/voice/media-streams), and [OpenAI's Realtime API](https://platform.openai.com/docs/) to make a phone call to speak with an AI Assistant. 
 
